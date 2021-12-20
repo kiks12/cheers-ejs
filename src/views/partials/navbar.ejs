@@ -20,7 +20,9 @@
                 placeholder="Search"
             />
             <div class="bg-black w-8 h-full flex-auto cursor-pointer rounded-r-md border border-black hover:bg-gray-700 flex items-center justify-center absolute top-0 right-0 bottom-0 active:bg-gray-500">
-                <MdSearch color="#f8f8f8" size={18} />
+                <span style="font-size: 0.8rem;" class="text-white">
+                    <i class="fas fa-search"></i>
+                </span>
             </div>
         </div>
     </div>
@@ -60,13 +62,13 @@
     </ul>
 
     <div class="items-center lg:flex md:flex sm:hidden">
-                <Link href="/profile/settings">
+                <!-- <a href="/profile/settings">
                     <div
                         class="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400"
                     >
                         <div class="rounded-full h-8 w-8 bg-black mr-2 overflow-hidden">
                             <span>
-                                <!-- {session && (
+                                {session && (
                                     <Image
                                         src={`${session.user && session.user.image}`}
                                         alt="profile"
@@ -74,12 +76,12 @@
                                         height={40}
                                         objectFit="cover"
                                     />
-                                )} -->
+                                )}
                             </span>
                         </div>
                         <p class="text-sm">{session.user && session.user.name}</p>
                     </div>
-                </Link>
+                </a> -->
                 <div class="flex items-center relative">
                     <div
                         class="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200 transition-all"
@@ -93,11 +95,11 @@
 
                 <!-- guest -->
                 <p class="text-sm">Guest</p>
-                <Link href="/login">
+                <a href="/login">
                     <p class="text-sm rounded-md ml-4 cursor-pointer hover:bg-black active:bg-gray-700 hover:text-white transition-all p-1 px-3 border-black border">
                         Log in
                     </p>
-                </Link>
+                </a>
                 <!--  -->
     </div>
 
