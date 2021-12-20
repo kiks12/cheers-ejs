@@ -58,6 +58,7 @@
                     <div class="flex">
                         <div
                             class="rounded-full h-12 w-12 shadow-md mr-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all"
+                            id="googleSignIn"
                         >
                             <span style="font-size: 2rem; color: tomato;">
                                 <i class="fab fa-google"></i>
@@ -80,6 +81,40 @@
         </div>
     </div>
 </main>
+
+<script type="module">
+    const googleSignInButton = document.getElementById("googleSignIn");
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+    import {getAuth, signInWithPopup, GoogleAuthProvider} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCpwnYae8Ipzpn1Eba5h3q2EgmeyeL3Nmo",
+      authDomain: "cheers-ejs.firebaseapp.com",
+      projectId: "cheers-ejs",
+      storageBucket: "cheers-ejs.appspot.com",
+      messagingSenderId: "109396595290",
+      appId: "1:109396595290:web:f69048267f955ca7ac7e63",
+      measurementId: "G-MLMGZKT071"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+
+    googleSignInButton.addEventListener("click", async function() {
+        const result = await signInWithPopup(auth, provider);
+        console.log(result);
+    });
+</script>
 
 </body>
 </html>
